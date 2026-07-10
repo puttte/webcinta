@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUAT PACAAR AKU ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        h2 {
+            color: #ff4d6d;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #4a4a4a;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #ff758f;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #ff4d6d;
+            transform: scale(1.05);
+        }
+
+        /* Khusus Slide Akhir (Interaktif) */
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+            position: relative;
+        }
+
+        #btn-no {
+            background-color: #747d8c;
+            position: absolute;
+            transition: all 0.2s ease;
+        }
+
+        #btn-yes {
+            background-color: #2ed573;
+        }
+        #btn-yes:hover {
+            background-color: #26af5f;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- SLIDE 1: Pembuka -->
+        <div class="slide active" id="slide-1">
+            <h2>Hai sayangnya aku shafa nisrina arma❤️</h2>
+            <p>sengg, aku mau langsung to the point aja yaa hehe, aku minta maaf dari hati yang paling dalam dan maaf aku belum bisa jadi yang paling sempurna buat kamu</p>
+            <button class="btn" onclick="nextSlide(2)">Klik di sini ya</button>
+        </div>
+
+        <!-- SLIDE 2: Penjelasan/Isi -->
+        <div class="slide" id="slide-2">
+            <h2>Aku Mau Cerita...</h2>
+            <p>aku tau sifat aku kemarin kurang enak banget buat kamu, tapi jujur aku gada maksud untuk nyalahin kamu, dan aku sadar sifat aku yang kemarin salah buat respon kamu, jadi itu bisa jadi pelajaran buat aku kedepannya dan semoga masalah kaya gini gabakal terjadi lagi yaa</p>
+            <button class="btn" onclick="nextSlide(3)">Lanjut</button>
+        </div>
+
+        <!-- SLIDE 3: Permohonan Maaf -->
+        <div class="slide" id="slide-3">
+            <h2>I'm Really Sorry 🥺</h2>
+            <p>sekali lagi aku minta maaf ya bii, ini salah satu cara aku buat minta maaf dan semoga maaf ini selalu diingat sama kamu dan aku, aku sayang kamu...</p>
+            <button class="btn" onclick="nextSlide(4)">Terakhir...</button>
+        </div>
+
+        <!-- SLIDE 4: Pertanyaan Interaktif -->
+        <div class="slide" id="slide-4">
+            <h2>mau maafin aku kan????</h2>
+            <p>jangan marah lagi ya... kita baikan ya? 🥰</p>
+            <div class="btn-container" style="min-height: 50px;">
+                <button class="btn" id="btn-yes" onclick="nextSlide(5)">Mau</button>
+                <button class="btn" id="btn-no" onmouseover="moveButton()">Nggak</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Ending -->
+        <div class="slide" id="slide-5">
+            <h2>uhuyyyy!!! makasih sayanggg ❤️</h2>
+            <p>makasih ya udah maafin akuu I love you so so so so so so so so much much much much much much much more more more more more more more.]</p>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi pindah slide
+        function nextSlide(slideNumber) {
+            // Sembunyikan semua slide
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Tampilkan slide yang dituju
+            document.getElementById(`slide-${slideNumber}`).classList.add('active');
+        }
+
+        // Fungsi tombol "Nggak" kabur saat di-hover
+        function moveButton() {
+            const btnNo = document.getElementById('btn-no');
+            // Menghitung posisi acak di dalam area card agar tidak keluar layar
+            const x = Math.random() * (150 - (-150)) + (-150);
+            const y = Math.random() * (100 - (-50)) + (-50);
+            
+            btnNo.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+
+</body>
+</html>
